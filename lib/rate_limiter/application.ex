@@ -4,11 +4,12 @@ defmodule RateLimiter.Application do
   @moduledoc false
 
    use Application
- @impl true
+  @impl true
   def start(_type, _args) do
     children = [
       RateLimiter.ETS,
       {Registry, keys: :unique, name: RateLimiter.Registry},
+      RateLimiter.UserSupervisor,
     ]
 
     opts = [strategy: :one_for_one, name: RateLimiter.Supervisor]
