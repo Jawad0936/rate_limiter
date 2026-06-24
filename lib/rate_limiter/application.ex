@@ -3,17 +3,15 @@ defmodule RateLimiter.Application do
   # for more information on OTP Applications
   @moduledoc false
 
-  use Application
+   use Application
 
   @impl true
   def start(_type, _args) do
     children = [
-      # Starts a worker by calling: RateLimiter.Worker.start_link(arg)
-      # {RateLimiter.Worker, arg}
+      # ETS owner must start first — everything else depends on the table existing
+      RateLimiter.ETS,
     ]
 
-    # See https://hexdocs.pm/elixir/Supervisor.html
-    # for other strategies and supported options
     opts = [strategy: :one_for_one, name: RateLimiter.Supervisor]
     Supervisor.start_link(children, opts)
   end
