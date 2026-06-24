@@ -96,10 +96,10 @@ defmodule RateLimiter.UserSupervisor do
 defp ensure_started_for(user_id, algo, opts) do
   module = module_for(algo)
 
-  # Only pass config if explicitly provided, otherwise let the module use its own defaults
   child_spec =
     case Keyword.get(opts, algo) do
       nil    -> {module, user_id: user_id}
+      config when map_size(config) == 0 -> {module, user_id: user_id}
       config -> {module, user_id: user_id, config: config}
     end
 
@@ -111,7 +111,6 @@ defp ensure_started_for(user_id, algo, opts) do
       :ok
   end
 end
-
   defp module_for(:token_bucket),    do: TokenBucket
   defp module_for(:sliding_window),  do: SlidingWindow
 end

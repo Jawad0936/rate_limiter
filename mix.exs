@@ -37,6 +37,7 @@ defmodule RateLimiter.MixProject do
 
     # Dev/test helpers
     {:phoenix_live_reload, "~> 1.4", only: :dev},
+    {:jason, "~> 1.4"},
     {:esbuild, "~> 0.8", only: :dev},
   ]
   end
