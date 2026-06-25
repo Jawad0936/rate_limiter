@@ -1,21 +1,2 @@
-# RateLimiter
-
-**TODO: Add description**
-
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `rate_limiter` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:rate_limiter, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/rate_limiter>.
-
+You can read a blog about this post here 
+https://medium.com/@jawad.ul.hassan2001/building-a-pinterest-style-rate-limiter-in-elixir-sub-millisecond-rate-limiting-without-redis-f0999a5bd02b
