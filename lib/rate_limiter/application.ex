@@ -1,15 +1,13 @@
 defmodule RateLimiter.Application do
-  # See https://hexdocs.pm/elixir/Application.html
-  # for more information on OTP Applications
-  @moduledoc false
+  use Application
 
-   use Application
   @impl true
   def start(_type, _args) do
     children = [
       RateLimiter.ETS,
       {Registry, keys: :unique, name: RateLimiter.Registry},
       RateLimiter.UserSupervisor,
+      RateLimiterWeb.Endpoint,
     ]
 
     opts = [strategy: :one_for_one, name: RateLimiter.Supervisor]
